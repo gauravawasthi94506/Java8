@@ -26,6 +26,8 @@ public class FunctionExample {
 		lst.add(new Employee1("Third",30));
 		lst.add(new Employee1("Fourth",40));
 		lst.add(new Employee1("Fifth",50));
+		Predicate<Employee1> pre=p1-> p1.age>20;
+		
 		Function<Employee1,String> fn=e1-> {
 			int age=e1.age;
 			String grade="";
@@ -36,8 +38,9 @@ public class FunctionExample {
 		};
 		
 		for(Employee1 emp:lst){
-			
+			if(pre.test(emp)){
 				System.out.println("Name is "+emp.name+" age is "+emp.age + "grade is"+fn.apply(emp));			
+			}
 		}
 	}
 	
